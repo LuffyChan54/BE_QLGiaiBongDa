@@ -29,6 +29,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 @Service
@@ -303,7 +304,7 @@ public class MuaGiaiService implements IMuaGiaiService {
                 hoSoDangKyEntity.setDoiBong(doiBongEntity);
                 hoSoDangKyEntity.setMuaGiai(muaGiaiEntity);
                 hoSoDangKyEntity.setQuanLyDkiHoSo(doiBongEntity.getQuanLy());
-
+                hoSoDangKyEntity.setThoiGianTao(new Timestamp(System.currentTimeMillis()));
                 hoSoDangKyEntity.setCacCauThu(listCauThuThamGia);
 
                 hoSoDangKyRepository.save(hoSoDangKyEntity);
